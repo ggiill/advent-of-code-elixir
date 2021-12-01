@@ -12,7 +12,7 @@ defmodule AdventOfCode.Day01Test do
   end
 
   defp get_input() do
-    {:ok, input} = File.read("test/inputs/day01.txt")
+    {:ok, input} = File.read("test/advent_of_code/inputs/day01.txt")
     input
   end
 end
