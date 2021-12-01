@@ -1,4 +1,4 @@
-defmodule AdventOfCodeTest do
+defmodule AdventOfCode.Day01Test do
   use ExUnit.Case
 
   alias AdventOfCode.Day01
