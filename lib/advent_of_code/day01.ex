@@ -1,24 +1,16 @@
 defmodule AdventOfCode.Day01 do
+  alias AdventOfCode.Helpers
+
   def part1(input), do: get_increases(input)
 
   def part2(input), do: get_increases_sliding_window(input, 3)
 
   defp get_increases(input) do
-    input |> parse_input() |> process(0)
+    input |> Helpers.parse_input() |> parse_input() |> process(0)
   end
 
   defp get_increases_sliding_window(input, sliding_window) do
-    input |> parse_input() |> process_n(sliding_window, 0)
-  end
-
-  defp parse_input(input) do
-    input
-    |> String.split("\n")
-    |> Enum.reject(&(&1 == ""))
-    |> Enum.map(fn n ->
-      {int, _rem} = Integer.parse(n)
-      int
-    end)
+    input |> Helpers.parse_input() |> parse_input() |> process_n(sliding_window, 0)
   end
 
   defp process([current | [next | _next_tail] = tail], increases) do
@@ -43,4 +35,12 @@ defmodule AdventOfCode.Day01 do
   end
 
   defp process_n(_list, _n, increases), do: increases
+
+  defp parse_input(input) do
+    input
+    |> Enum.map(fn n ->
+      {int, _rem} = Integer.parse(n)
+      int
+    end)
+  end
 end
